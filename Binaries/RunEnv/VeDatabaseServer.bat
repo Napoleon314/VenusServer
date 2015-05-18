@@ -1,0 +1,1 @@
+..\Windows\VC100\Win32\Debug\VeDatabaseServer Database file#config;file#script 62000 100 15000 null 192.168.2.250 root tt5566532 top_gear_test 3306

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Project Name="TopGearBase.luaprj" >
+    <Filter Name="script" >
+        <LuaFile RelativePath=".\..\..\..\..\Binaries\RunEnv\script\startup.lua" />
+        <LuaFile RelativePath=".\..\..\..\..\Binaries\RunEnv\script\top_gear.lua" />
+        <LuaFile RelativePath=".\..\..\..\..\Binaries\RunEnv\script\player.lua" />
+    </Filter>
+</Project>

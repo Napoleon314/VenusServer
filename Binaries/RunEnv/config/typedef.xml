@@ -1,0 +1,123 @@
+<root>
+	<enums>
+		<bool>
+			<false/>
+			<true/>
+		</bool>
+		<language>
+			<zh_CN/>
+			<zh_TW/>
+			<en_US/>
+		</language>
+		<login_result>
+			<login_succeed/>
+			<login_wrong_version/>
+			<login_failed/>
+		</login_result>
+		<account_state>
+			<account_create/>
+			<account_normal/>
+		</account_state>
+	</enums>
+  <structs>
+  	<player_info>
+  		<title type="uint8"/>
+  		<armor_class type="uint32"/>
+  		<battle_ability type="uint32"/>
+  		<level type="uint8"/>
+  		<name type="string"/>
+  		<gold type="uint32"/>
+			<gem type="uint8"/>
+			<exp_power type="uint32"/>
+			<energy type="uint8"/>
+  	</player_info>
+  	<player_data>
+  		<exp_max type="uint32"/>
+  		<buddy_list type="uint8"/>
+  		<physical_power type="uint8"/>
+  	</player_data>
+  	<card_info>
+  		<id type="uint16"/>
+  		<level type="uint8"/>
+  		<quality type="uint8"/>
+  	</card_info>
+  	<chips>
+  		<id type="uint16"/>
+  		<amount type="uint32"/>
+  	</chips>
+  	<mission_info>
+  		<group_type type="string"/>
+  		<unlock_tag type="uint8"/>
+  	</mission_info>
+  </structs>
+	<entities>
+		<top_gear type="global">
+			<properties period="10">
+				<index type="auto"/>
+				<time type="uint64"/>
+			</properties>
+			<base>
+				<Login>
+					<in>
+						<key type="string"/>
+						<lan type="language"/>
+						<verMaj type="uint8"/>
+						<verMin type="uint8"/>
+					</in>
+					<out>
+						<res type="login_result" default="login_failed"/>
+					</out>
+				</Login>
+			</base>
+		</top_gear>
+		<player type="property">
+			<properties period="0" tab_size="1024">
+				<uuid type="string"/>
+				<state type="account_state"/>
+				<lan type="language" client="false" database="false"/>
+				<info type="player_info"/>
+				<data type="player_data" database="false"/>
+				<card type="card_info" array="true"/>
+				<chip type="chips" array="true"/>
+				<mission type="mission_info" array="true" database="false"/>
+			</properties>
+			<base>
+				<CreateRole>
+					<in>
+						<name type="string"/>
+						<role type="uint8"/>
+					</in>
+					<out>
+						<res type="bool" default="false"/>
+					</out>
+				</CreateRole>
+				<LeaderSwap>
+					<in>
+						<index type="uint8"/>
+					</in>
+				</LeaderSwap>
+				<CardLevelUp>
+					<in>
+						<index type="uint8"/>
+						<gold_price type="uint32"/>
+						<exp_price type="uint32"/>
+					</in>
+				</CardLevelUp>
+				<CardQualityUp>
+					<in>
+						<index type="uint8"/>
+						<chip_price type="uint32"/>
+						<gold_price type="uint32"/>
+					</in>
+				</CardQualityUp>
+				<WarTrophies>
+					<in>
+						<gold type="uint32"/>
+						<exp_power type="uint32"/>
+						<chip type="chips" array="true"/>
+					</in>
+				</WarTrophies>
+			</base>
+		</player>
+	</entities>
+</root>

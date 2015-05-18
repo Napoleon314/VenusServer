@@ -1,0 +1,1 @@
+..\Windows\VC100\Win32\Debug\VeBaseServer Base file#config;file#script 62001 2000 15000 null 127.0.0.1 62000 null
